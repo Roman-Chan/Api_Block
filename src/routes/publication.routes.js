@@ -13,7 +13,12 @@ router.post(
     }),
     publicationController.createPost
 );
-router.get("/all", verifyToken, publicationController.getAllPosts);
+router.get("/all",verifyToken,  publicationController.getAllPosts);
+router.get("/allPublication/:id",verifyToken,  publicationController.getPostByIdUser);
+
+//buscar publicacion por ID
+router.get("/publicationById/:id",verifyToken, publicationController.getPostById);
+
 router.delete("/delete/:id", verifyToken, publicationController.deletePost);
 router.put("/update/:id", verifyToken, publicationController.updatePost);
 
